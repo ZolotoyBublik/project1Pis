@@ -1,0 +1,32 @@
+/* Лаб 2 — стили по методичке */
+body {
+    background: #5d1cc5;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #333;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+p, h4 {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+ul, ol {
+    margin: 0;
+}
+
+table tr td {
+    padding: 5px;
+}
+
+img {
+    height: 30px;
+}
