@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Архив всех статей</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/article.css">
+</head>
+<body class="archive">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <div class="header">
+        <img src="{{ STATIC_URL }}img/logo.png" id="logo" alt="Логотип" />
+        <!-- Задание: ссылка на регистрацию вверху справа -->
+        <div class="header-links">
+            <a href="/register/">Регистрация</a>
+            <a href="/login/">Войти</a>
+        </div>
+    </div>
+    <div class="archive">
+        {% if request.user.is_authenticated %}
+        <p><a href="/article/new/">+ Написать статью</a></p>
+        {% endif %}
+        {% for post in posts %}
+        <div class="one-post">
+	        <div class="post-manage">
+	            <h2 class="post-title">
+	                <a href="/article/{{ post.id }}/">{{ post.title }}</a>
+	            </h2>
+	            <a class="fold-btn">Свернуть</a>
+            </div>
+            <div class="article-info">
+                <div class="article-author">{{ post.author.username }}</div>
+                <div class="article-created-date">{{ post.created_date }}</div>
+            </div>
+            <p class="article-text">{{ post.get_excerpt }}</p>
+            <div class="one-post-shadow"></div>
+        </div>
+        {% endfor %}
+        <script src="{{ STATIC_URL }}js/script.js"></script>
+        <script src="{{ STATIC_URL }}js/dom.js"></script>
+    </div>
+</body>
+</html>
